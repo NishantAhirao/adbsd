@@ -1,0 +1,7 @@
+# how to convert categorical variables into quantitative variables in python
+
+# Categorical variables represent qualitative characteristics or attributes. They divide data into distinct categories or groups.
+# Examples: Examples of categorical variables include gender (male or female)
+
+# Quantitative variables represent numerical quantities or measurements. They provide information about the magnitude or amount of something.
+# Examples: Examples of quantitative variables include age (in years)
