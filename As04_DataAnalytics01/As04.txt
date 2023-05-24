@@ -1,0 +1,16 @@
+The isna() function is a method provided by pandas that is used to check for missing or null values in a DataFrame or Series. It returns a Boolean DataFrame/Series of the same shape, where each element is True if the corresponding value is missing or NaN (not a number), and False otherwise.
+
+The line of code x = df.drop(target_variables, axis=1) is used to create a new DataFrame x by dropping one or more columns specified in target_variables from the original DataFrame df. The axis=1 parameter indicates that columns should be dropped.
+
+model_selection module provides various classes and functions for model selection and evaluation, including techniques for splitting data, cross-validation, hyperparameter tuning, and performance metrics
+
+train_test_split is a function provided by scikit-learn's model_selection module. It is commonly used for splitting a dataset into separate training and testing subsets. This function helps evaluate the performance of machine learning models on unseen data and prevents overfitting.
+
+
+x_train, x_test, y_train, y_test = train_test_split(x,y,test_size = 0.2, random_state = 2)
+
+X: The input features or independent variables.
+y: The target variable or dependent variable.
+test_size: The proportion of the dataset to include in the test set. It can be specified as a float (0.0 to 1.0) representing the ratio or as an integer representing the absolute number of samples.
+random_state: Controls the random shuffling applied to the data before splitting. It ensures reproducibility of the same split.
+The train_test_split function splits the dataset into two pairs of arrays: X_train and X_test representing the input features for training and testing, and y_train and y_test representing the target variable for training and testing, respectively.

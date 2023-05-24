@@ -1,0 +1,8 @@
+Seaborn is a popular data visualization library in Python built on top of Matplotlib. It provides a high-level interface for creating attractive and informative statistical graphics. Seaborn is designed to work seamlessly with pandas data structures and is particularly well-suited for visualizing complex datasets.
+
+Seaborn offers a wide range of plotting functions and customization options, making it easy to create various types of statistical visualizations.
+
+
+index_col for taking a column as index else default from 0 to n
+
+The value_counts() method is a function provided by pandas that is used to count the occurrences of unique values in a pandas Series. It returns a new Series object with the unique values as the index and their corresponding counts as the values.
