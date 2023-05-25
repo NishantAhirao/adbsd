@@ -19,13 +19,10 @@ NumPy:
 
 
 
-The isna() function is a method provided by pandas that is used to check for missing or null values in a DataFrame or Series. It returns a Boolean DataFrame/Series of the same shape, where each element is True if the corresponding value is missing or NaN (not a number), and False otherwise.
+sklearn.model_selection is a module in scikit-learn (sklearn) that provides tools for model selection and evaluation. It offers various functionalities for splitting datasets into train and test sets, performing cross-validation, and hyperparameter tuning.
 
-The line of code x = df.drop(target_variables, axis=1) is used to create a new DataFrame x by dropping one or more columns specified in target_variables from the original DataFrame df. The axis=1 parameter indicates that columns should be dropped.
 
-model_selection module provides various classes and functions for model selection and evaluation, including techniques for splitting data, cross-validation, hyperparameter tuning, and performance metrics
-
-train_test_split is a function provided by scikit-learn's model_selection module. It is commonly used for splitting a dataset into separate training and testing subsets. This function helps evaluate the performance of machine learning models on unseen data and prevents overfitting.
+train_test_split : It is used to split a dataset into separate training and testing subsets, which is a common practice in machine learning for evaluating model performance.
 
 
 x_train, x_test, y_train, y_test = train_test_split(x,y,test_size = 0.2, random_state = 2)
@@ -36,31 +33,18 @@ test_size: The proportion of the dataset to include in the test set. It can be s
 random_state: Controls the random shuffling applied to the data before splitting. It ensures reproducibility of the same split.
 The train_test_split function splits the dataset into two pairs of arrays: X_train and X_test representing the input features for training and testing, and y_train and y_test representing the target variable for training and testing, respectively.
 
-fit() method is used to train various regression models such as Linear Regression, Random Forest Regression, or Support Vector Regression.
 
 
-round() function is used to round a floating-point number to a specified number of decimal places or to the nearest whole number if no decimal places are specif
+The StandardScaler class from the sklearn.preprocessing module in scikit-learn (sklearn) is used for standardizing or scaling features in a dataset. Standardization is a common preprocessing step in machine learning that transforms the features to have zero mean and unit variance. It is useful when the features have different scales and need to be normalized to ensure fairness during model training.
 
 
-score() method is available for regression models and is used to calculate the coefficient of determination (R² score) of the predictions.
+fit_transform is a method of the StandardScaler class. It performs two steps: fitting the scaler to the data and then transforming the data based on the fitted scaler. The fit_transform method is commonly used when both fitting and transforming the data are required.
 
 
-predict() : It is used to generate predictions for new or unseen data based on the learned patterns from the training data.
+It is important to note that the fit_transform method is typically applied to the training data only. The fitted scaler can then be used to transform the testing or validation data using the transform method without refitting the scaler. This ensures consistency in the scaling process across different datasets.
 
 
-
-The sklearn.metrics module in scikit-learn provides a variety of evaluation metrics for assessing the performance of machine learning models.
-
-r2_score: Computes the coefficient of determination (R² score) to evaluate the regression model's performance.
-
-mean_absolute_error: Calculates the mean absolute error between predicted and true values.
-MAE = (1/n) * Σ|y_true - y_pred|
+xtrain[0:10, :] is used to slice the xtrain array. The 0:10 part specifies the range of rows to be selected, from index 0 to 9 (inclusive), and the : represents all columns.
 
 
-
-mean_squared_error: Calculates the mean squared error between predicted and true values.
-
-MSE = (1/n) * Σ(y_true - y_pred)²
-
-
-A DataFrame is a two-dimensional tabular data structure in pandas, similar to a table in a relational database or a spreadsheet. It consists of rows and columns, where each column can contain data of a different type (e.g., numerical, categorical, string).
+LogisticRegression is a class in scikit-learn that represents a logistic regression model. Logistic regression is a popular algorithm used for binary classification problems, where the goal is to predict the probability of an instance belonging to a particular class.

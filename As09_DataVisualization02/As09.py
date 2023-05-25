@@ -15,6 +15,6 @@ df.info()
 
 df.columns
 
-sns.set_style('whitegrid')
+sns.set_style('whitegrid') 
 plt.figure(figsize = (10 , 4))
 sns.boxplot(x = 'age' , y = 'sex' , data= df , hue = 'survived')

@@ -17,29 +17,18 @@ NumPy:
     Integration with other libraries: NumPy serves as the foundation for many other scientific and data-related Python libraries, including Pandas, SciPy, and scikit-learn.
     NumPy's efficient array operations and mathematical functions make it a fundamental library for scientific computing and data analysis in Python.
 
-#Scipy.stats:  provides a wide range of statistical functions and distributions for various probability distributions, statistical tests, and descriptive statistics.
 
 matplotlib.pyplot is a collection of functions in the matplotlib library that provides a MATLAB-like interface for creating various types of plots and visualizations in Python. It is a commonly used module for generating 2D plots
 
-#The z-score :, also known as the standard score, measures how many standard deviations a particular value is away from the mean of a distribution. z = (x - mean) / std
+Seaborn is a popular data visualization library in Python built on top of Matplotlib. It provides a high-level interface for creating attractive and informative statistical graphics. Seaborn is designed to work seamlessly with pandas data structures and is particularly well-suited for visualizing complex datasets.
 
- pd.read_csv() : that is used to read data from a CSV (Comma-Separated Values) file into a pandas DataFrame.
-
-
-#calculates the interquartile range (IQR) for a given array of values. The IQR is a measure of statistical dispersion, specifically the range between the 25th and 75th percentiles of a distribution.
-# The formula for calculating the IQR is: IQR = Q3 - Q1
-# Q1 is the 25th percentile (the value below which 25% of the data falls).
-# Q3 is the 75th percentile (the value below which 75% of the data falls).
-#  It returns a scalar value representing the IQR.
+Seaborn offers a wide range of plotting functions and customization options, making it easy to create various types of statistical visualizations.
 
 
-sklearn.preprocessing is a module in the scikit-learn (sklearn) library that provides a collection of tools for data preprocessing and feature engineering. It offers various functions and classes to transform, normalize, encode, and scale input data
 
-LabelEncoder class provides a convenient way to transform these categorical labels into numeric labels 
-The LabelEncoder works by assigning a unique integer value to each unique label in the input data. For example, if the input labels are ["red", "blue", "green", "red"], the LabelEncoder will assign the values [0, 1, 2, 0] to them.
+By calling set_style('whitegrid'), you set the plot style to a white background with gridlines, which is one of the predefined styles available in Seaborn.
 
-fit_transform: combines the steps of fitting a model or transformer to the data and transforming the data in a single step
-Fit: During the fitting phase, the model or transformer learns and adapts to the input data
-Transform: After the fitting phase, the transform() method is applied to the input data using the learned parameters or statistics.
+plt.figure(figsize = (10 , 4))::
+allows you to control the dimensions of the figure, such as its width and height, to customize the output plot's size.
 
-plt.scatter(a,b): It is used to create scatter plots, a type of plot that displays individual data points as markers on a 2D Cartesian coordinate system.
+In the example plt.figure(figsize=(10, 4)), the figsize parameter is set to (10, 4). This specifies that the figure should have a width of 10 inches and a height of 4 inches.

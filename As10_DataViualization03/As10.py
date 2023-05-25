@@ -3,7 +3,8 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-df1 = pd.read_csv('/content/Iris.csv') df1
+df1 = pd.read_csv('/content/Iris.csv') 
+df1
 
 df = pd.DataFrame(df1)
 df.head()
@@ -40,7 +41,7 @@ df['SepalWidthCm'].hist(bins = 30)
 
 df['Species'].value_counts()
 
-df['Species'].hist(bins = 30)
+df['Species'].hist(bins = 30) #create histogram with 30 bins
 
 sns.boxplot(x = 'SepalLengthCm' ,data = df)
 

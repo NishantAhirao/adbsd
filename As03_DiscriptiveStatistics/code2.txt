@@ -1,3 +1,23 @@
+Pandas:
+    Pandas is a library that provides data structures and data analysis tools. It introduces two primary data structures: Series and DataFrame.
+
+    Series: A one-dimensional labeled array capable of holding any data type. It is similar to a column in a spreadsheet or a single-column dataset.
+    DataFrame: A two-dimensional labeled data structure consisting of columns that can hold different data types. It is akin to a spreadsheet or a SQL table.
+    Pandas provides a wide range of functionalities for data manipulation, cleaning, filtering, merging, grouping, and analysis. It allows for efficient handling of structured data and makes data exploration and manipulation tasks more convenient.
+
+NumPy:
+    NumPy, short for Numerical Python, is a library for numerical computation in Python. It provides a multidimensional array object called ndarray, along with functions for working with arrays efficiently.
+
+    The key features of NumPy include:
+
+    ndarray: A fast and efficient n-dimensional array object that supports various operations, including mathematical, logical, and statistical operations.
+    Vectorized operations: NumPy enables element-wise operations on arrays, allowing for concise and efficient computation on large datasets.
+    Linear algebra operations: NumPy provides functions for linear algebra operations, such as matrix multiplication, eigenvalues, and eigenvectors.
+    Random number generation: NumPy includes functions for generating random numbers from various probability distributions.
+    Integration with other libraries: NumPy serves as the foundation for many other scientific and data-related Python libraries, including Pandas, SciPy, and scikit-learn.
+    NumPy's efficient array operations and mathematical functions make it a fundamental library for scientific computing and data analysis in Python.
+
+
 Seaborn is a popular data visualization library in Python built on top of Matplotlib. It provides a high-level interface for creating attractive and informative statistical graphics. Seaborn is designed to work seamlessly with pandas data structures and is particularly well-suited for visualizing complex datasets.
 
 Seaborn offers a wide range of plotting functions and customization options, making it easy to create various types of statistical visualizations.

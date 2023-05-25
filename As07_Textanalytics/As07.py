@@ -14,7 +14,7 @@ sent=	"They	told	that	thier	eges	are	20	23	and	27	respectively"
 add=[]
 for word in sent.split():
     if word.isdigit():
-        add.append(int(word))
+        add.append(int(word)) #typecaste
 print ("Ave", sum(add)/len(add))
 
 
@@ -22,6 +22,7 @@ from nltk.tokenize import word_tokenize, sent_tokenize
 sent= "Hello all! how are you? Welcome to pun "
 sent_tokenize(sent)
 word_tokenize(sent)
+
 from nltk.tokenize import SpaceTokenizer 
 
 tk=SpaceTokenizer()
@@ -46,14 +47,19 @@ for word in s4:
 word='playing'
 from nltk.stem import WordNetLemmatizer
 wnl=WordNetLemmatizer()
-print(wnl.lemmatize(word,'n')) # noun 3 print(wnl.lemmatize(word,'v')) # verb
-print(wnl.lemmatize(word,'a')) # adjective 5 print(wnl.lemmatize(word,'r')) # adverb
+print(wnl.lemmatize(word,'n')) # noun
+print(wnl.lemmatize(word,'v')) # verb
+print(wnl.lemmatize(word,'a'))#adjective
+
+print(wnl.lemmatize(word,'r')) # adverb
 
 
 word='went'
 wnl=WordNetLemmatizer()
 print(wnl.lemmatize(word,'n')) # noun 3 print(wnl.lemmatize(word,'v')) # verb
 print(wnl.lemmatize(word,'a')) # adjective 5 print(wnl.lemmatize(word,'r')) # adverb
+
+
 # POS tagging
 from nltk import pos_tag
 import nltk

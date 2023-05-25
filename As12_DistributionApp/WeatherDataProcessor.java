@@ -1,42 +1,80 @@
-import java.io.BufferedReader;
-import java.io.FileReader; 
- 
+// Java Code to process logfile Mapper Class:
+package Sales
+
+Country;
+
 import java.io.IOException;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapred.*;
 
-public class WeatherDataProcessor {
-public static void main(String[] args) throws IOException { String filePath = "E:\\TE\\Sem 6\\DS&BDA
-LAB\\DSBDAL_Assignment12_TCOB03\\src\\sample_weather.txt";
+public class SalesMapper extends MapReduceBase implements Mapper<LongWritable, Text, Text, IntWritable> {
+    private final static IntWritable one = new IntWritable(1);
 
-// Open the file for reading
-BufferedReader reader = new BufferedReader(new FileReader(filePath));
-
-// Skip the header line
-String line = reader.readLine();
-
-// Initialize the sum and count variables
-double sumTemperature = 0.0; double sumDewPoint = 0.0; double sumWindSpeed = 0.0; int count = 0;
-
-// Read each line of the file
-while ((line = reader.readLine()) != null) {
-// Split the line into fields String[] fields = line.split(",");
-
-// Parse the values
-double temperature = Double.parseDouble(fields[1]); double dewPoint = Double.parseDouble(fields[2]); double windSpeed = Double.parseDouble(fields[3]);
-
-// Add the values to the sum variables sumTemperature += temperature;
- 
-sumDewPoint += dewPoint; sumWindSpeed += windSpeed;
-
-// Increment the count variable count++;
+    public void map(LongWritable key, Text value, OutputCollector<Text, IntWritable> output, Reporter reporter)
+            throws IOException {
+        String valueString = value.toString();
+        String[] SingleCountryData = valueString.split("-");
+        output.collect(new Text(SingleCountryData[0]), one);
+    }
 }
 
-// Calculate the averages
-double avgTemperature = sumTemperature / count; double avgDewPoint = sumDewPoint / count; double avgWindSpeed = sumWindSpeed / count;
+// Reducer Class:package SalesCountry;
+import java.io.IOException;
+import java.util.*;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapred.*;
 
-// Print the averages
-System.out.println("Average Temperature: " + avgTemperature); System.out.println("Average Dew Point: " + avgDewPoint); System.out.println("Average Wind Speed: " + avgWindSpeed);
+public class SalesCountryReducer extends MapReduceBase implements Reducer<Text, IntWritable, Text, IntWritable> {
+    public void reduce(Text t_key, Iterator<IntWritable> values,
+            OutputCollector<Text, IntWritable> output, Reporter reporter) throws IOException {
+        Text key = t_key;
+        int frequencyForCountry = 0;
+        while (values.hasNext()) {
+            // replace type of value with the actual type of our value
+            IntWritable value = (IntWritable) values.next();
+            frequencyForCountry += value.get();
+        }
+        output.collect(key, new IntWritable(frequencyForCountry));
+    }
+}
 
-// Close the file reader.close();
+// Driver Class:package SalesCountry;
+
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.*;
+import org.apache.hadoop.mapred.*;
+
+public class SalesCountryDriver {
+public static void main(String[] args) {
+JobClient my_client = new JobClient();
+// Create a configuration object for the job
+JobConf job_conf = new JobConf(SalesCountryDriver.class);
+
+// Set a name of the Job
+job_conf.setJobName("SalePerCountry");
+// Specify data type of output key and value
+job_conf.setOutputKeyClass(Text.class);
+job_conf.setOutputValueClass(IntWritable.class);
+// Specify names of Mapper and Reducer Class
+job_conf.setMapperClass(SalesCountry.SalesMapper.class);
+job_conf.setReducerClass(SalesCountry.SalesCountryReducer.class);
+// Specify formats of the data type of Input and output
+job_conf.setInputFormat(TextInputFormat.class);
+job_conf.setOutputFormat(TextOutputFormat.class);
+// Set input and output directories using command line arguments,
+//arg[0] = name of input directory on HDFS, and arg[1] = name of
+output directory to be created to store the output file.
+FileInputFormat.setInputPaths(job_conf, new Path(args[0]));
+FileOutputFormat.setOutputPath(job_conf, new Path(args[1]));
+my_client.setConf(job_conf);
+try {
+// Run the job
+JobClient.runJob(job_conf);
+} catch (Exception e) {
+e.printStackTrace();
 }
 }
-
+}
